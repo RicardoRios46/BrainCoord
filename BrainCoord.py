@@ -11,12 +11,12 @@ def test_imputs():
     print("hace testing de los inputs")
 
 
-
 # Inicia la funcion principal
+database_filename = "datatest.csv"
 
 test_imputs()
 
-nucleo = cm.Nucleo()
+nucleo = cm.Nucleo(database_filename)
 
 nucleo.read_list()
 nucleo.create_point()
