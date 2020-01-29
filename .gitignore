@@ -1,0 +1,5 @@
+
+.Rhistory
+.idea
+*.pyc
+.ipynb_checkpoints

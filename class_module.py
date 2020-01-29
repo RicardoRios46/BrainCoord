@@ -1,5 +1,6 @@
 import numpy as np
-#wdhwgdkjwe
+
+
 class Nucleo:
     database_filename = "nombre del archivo"
     reference_point = None  # lambda o bregma
@@ -19,6 +20,7 @@ class Nucleo:
 
     def get_coordinates(self):
         print("")
+        return [0, 0, 0]
 
     def update_bitacore(self):
         print("Actualizar e impimir bitacora")
