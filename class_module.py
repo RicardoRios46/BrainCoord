@@ -18,13 +18,13 @@ class Nucleo():
 
     def read_list(self):
         dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(range(6))) # Cargamos el .csv, no tomamos el header y solo carmaos las primeras 5 columnas
-        #dataset = dataset[~np.isnan(dataset)] # Eliminamos las filas con NaNs
-
+        dataset = dataset[~np.isnan(dataset).any(axis=1)] # Eliminamos las filas con NaNs
+        # Rellenamos las variables del objeto con la info de la tabla
         self.lambda_range = dataset[:,0]
         self.bregma_range = dataset[:,1]
-        self.medioLateral_range = dataset[:,2:3]
-        self.dorsoVentral_range = dataset[:,4:5]
-
+        self.medioLateral_range = dataset[:,2:4]
+        self.dorsoVentral_range = dataset[:,4:6]
+        # El numero total de filas
         self.n_points = self.bregma_range.size
 
         print("carga la lista")
