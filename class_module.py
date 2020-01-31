@@ -2,9 +2,9 @@ import numpy as np
 
 
 class Nucleo():
+    #Predefinimos inputs
     database_filename = "nombre del archivo"
     reference_point = None  # lambda o bregma
-    n_points = 0
     coordinate0 = [0, 0, 0]
 
     # Estas variables contendran columnas con la info de las coordenadas
@@ -12,9 +12,12 @@ class Nucleo():
     bregma_range = None
     medioLateral_range = None
     dorsoVentral_range = None
+    n_points = 0
 
-    def __init__(self, database_filename):
+    def __init__(self, database_filename, reference_point, coordinate0):
         self.database_filename = database_filename
+        self.reference_point = reference_point
+        self.coordinate0 = coordinate0
 
     def read_list(self):
         dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(range(6))) # Cargamos el .csv, no tomamos el header y solo carmaos las primeras 5 columnas

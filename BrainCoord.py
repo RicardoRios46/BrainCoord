@@ -1,22 +1,25 @@
-import class_module as cm
+import class_module
 import numpy as np
 
-# ESta funcion esta decorada con Click para las entradas
-def test_imputs():
+# ToDo ESta funcion hara testing del formato de los inputs. Va a estar decorada con Click para las entradas desde terminal
+def test_inputs(database_filename, reference_point, coordinate0):
     #database_filename = "nombre del archivo"
     #reference_point = None  # lambda o bregma
-    #n_points = 1
     #coordinate0 = [0, 0, 0]
 
     print("hace testing de los inputs")
 
 
 # Inicia la funcion principal
+
+# Inputs de prueba
 database_filename = "datatest.csv"
+reference_point = "lambda"
+coordinate0 = [0, 0, 0]
 
-test_imputs()
+test_inputs()
 
-nucleo = cm.Nucleo(database_filename)
+nucleo = class_module.Nucleo(database_filename, reference_point, coordinate0)
 
 nucleo.read_list()
 nucleo.create_point()
