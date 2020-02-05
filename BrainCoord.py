@@ -17,7 +17,7 @@ database_filename = "datatest.csv"
 reference_point = "lambda"
 coordinate0 = [0, 0, 0]
 
-test_inputs()
+test_inputs(database_filename, reference_point, coordinate0)
 
 nucleo = class_module.Nucleo(database_filename, reference_point, coordinate0)
 
