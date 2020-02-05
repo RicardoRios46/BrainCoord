@@ -5,7 +5,7 @@ import numpy as np
 def test_inputs(database_filename, reference_point, coordinate0):
     #database_filename = "nombre del archivo"
     #reference_point = None  # lambda o bregma
-    #coordinate0 = [0, 0, 0]
+    #coordinate0 = 0
 
     print("hace testing de los inputs")
 
@@ -13,10 +13,11 @@ def test_inputs(database_filename, reference_point, coordinate0):
 # Inicia la funcion principal
 
 # Inputs de prueba
-database_filename = "datatest.csv"
+database_filename = "medialcm.csv"
 reference_point = "lambda"
-coordinate0 = [0, 0, 0]
+coordinate0 = [33, 15, 63.7]
 
+print(coordinate0)
 test_inputs(database_filename, reference_point, coordinate0)
 
 nucleo = class_module.Nucleo(database_filename, reference_point, coordinate0)
