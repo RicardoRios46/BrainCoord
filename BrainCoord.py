@@ -13,7 +13,7 @@ def test_inputs(database_filename, reference_point, coordinate0):
 # Inicia la funcion principal
 
 # Inputs de prueba
-database_filename = "medial.csv"
+database_filename = "medial_der.csv"
 reference_point = "lambda"
 coordinate0 = [33, 15, 63.7]
 
