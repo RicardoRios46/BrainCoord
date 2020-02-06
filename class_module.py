@@ -52,6 +52,15 @@ class Nucleo():
         self.__area = abs(self.__xRange * self.__yRange)
         self.__cuadro_chido = self.__area.argmax()
 
+        max_area = 0
+        indx_max_area = 0
+        indx = 0
+        for area in self.__area:
+            if area > max_area:
+                max_area = area
+                indx_max_area = indx
+                indx += 1
+
         # Prints para debuug
         print("indice cuadro chido= ", self.__cuadro_chido)
         print("xRange=", self.__xRange[self.__cuadro_chido])
@@ -62,7 +71,7 @@ class Nucleo():
         if self.reference_point == "lambda":
             ap = self.coordinate0[0] + self.lambda_range[self.__cuadro_chido]
 
-        else:
+        else: # Estamos en "bregma"
             ap = self.coordinate0[0] + self.bregma_range[self.__cuadro_chido]
         ml = self.coordinate0[1] + self.__xRange[self.__cuadro_chido] / 2
         vd = self.coordinate0[2] - (self.__yRange[self.__cuadro_chido] / 2 + self.dorso_range[self.__cuadro_chido])
@@ -71,7 +80,7 @@ class Nucleo():
         print("lambda_range=", self.lambda_range[self.__cuadro_chido])
         print("x_range/2=", self.__xRange[self.__cuadro_chido] / 2)
         print("y_range/2=", self.__yRange[self.__cuadro_chido] / 2)
-        # ToDo Redondear a 2 decimales
+
         return [round(ap,1), round(ml,1), round(vd,1)]
 
     # ToDo Implementar una bitacora
