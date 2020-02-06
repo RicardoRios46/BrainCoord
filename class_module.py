@@ -61,7 +61,7 @@ class Nucleo():
         self.__yRange = self.ventral_range - self.dorso_range
         # Obtenemos el area de los cuadrados en la base de datos
         self.__area = abs(self.__xRange * self.__yRange)
-        self.__cuadro_chido = self.__find_cuadrochido()
+        self.__cuadro_chido = self.__find_cuadro_chido()
 
         # Prints para debuug
         print("indice cuadro chido= ", self.__cuadro_chido)
