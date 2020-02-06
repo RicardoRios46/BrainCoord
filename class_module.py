@@ -65,17 +65,15 @@ class Nucleo():
         return indx_max_area
 
     def read_list(self):
-<<<<<<< Updated upstream
+
         """ Docummenting function blah blah blah"""
         # ToDo revisar el caso cuando solo hay una fila
         dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(
             range(6)))  # Cargamos el .csv, no tomamos el header y solo carmaos las primeras 5 columnas
         dataset = dataset[~np.isnan(dataset).any(axis=1)]  # Eliminamos las filas con NaNs
         print(dataset[3,:])
-=======
         dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(range(6))) # Cargamos el .csv, no tomamos el header y solo cargamos las primeras 5 columnas
         dataset = dataset[~np.isnan(dataset).any(axis=1)] # Eliminamos las filas con NaNs
->>>>>>> Stashed changes
         # Rellenamos las variables del objeto con la informción de la tabla
         self.lambda_range = dataset[:, 0]
         self.bregma_range = dataset[:, 1]
@@ -92,7 +90,7 @@ class Nucleo():
         self.__yRange = self.ventral_range - self.dorso_range
         # Obtenemos el area de los cuadrados en la base de datos
         self.__area = abs(self.__xRange * self.__yRange)
-        self.__cuadro_chido = self.__find_cuadro_chido()
+        self.__cuadro_chido = self.__find_cuadrochido()
 
         # Prints para debuug
         print("indice cuadro chido= ", self.__cuadro_chido)
