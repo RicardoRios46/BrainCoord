@@ -16,7 +16,7 @@ def checkFormat_referece_point(reference_point):
         raise InadequateFormatException()
 
 
-def checkFormat_coordinate0(coordinate0, reference_point):
+def checkFormat_coordinate0(coordinate0):
     """Checa la coordenadas es una lista valida con numeros"""
     if type(coordinate0) == list:
         if len(coordinate0) == 3:
