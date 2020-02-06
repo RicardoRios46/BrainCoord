@@ -16,35 +16,40 @@ This script requires that `NumPy` be installed within the actual Python environm
 
 
 import class_module
-import numpy as np
-
-# ToDo ESta funcion hara testing del formato de los inputs. Va a estar decorada con Click para las entradas desde terminal
-def test_inputs(database_filename, reference_point, coordinate0):
-    
-    
-    
-    #database_filename = "nombre del archivo"
-    #reference_point = None  # lambda o bregma
-    #coordinate0 = 0
-
-    print("hace testing de los inputs")
+import checkInputs as chI
+import click
 
 
-# Inicia la funcion principal
+@click.command()
+@click.option('--database_filename', prompt = 'Introduce your text file name within the extention')
+@click.option('--reference_point',  prompt = 'Introduce you reference point (bregma or lambda)')
+@click.option('--ap', prompt = 'Introduce AP coordinate',type=float)
+@click.option('--ml', prompt = 'Introduce ML coordinate',type=float)
+@click.option('--dv', prompt = 'Introduce DV coordinate',type=float)
+def brain_coord(database_filename, reference_point, ap, ml, dv):
+    coordinate0 = [ap, ml, dv]
 
-# Inputs de prueba
-database_filename = "medial_der.csv"
-reference_point = "lambda"
-coordinate0 = [33, 15, 63.7]
+    chI.checkFormat_referece_point(reference_point)
+    chI.checkFormat_coordinate0(coordinate0)
+    chI.checkValues_coordinate0(coordinate0, reference_point)
+    chI.checkExistence_file(database_filename)
+    chI.checkFormat_file(database_filename)
 
-print(coordinate0)
-test_inputs(database_filename, reference_point, coordinate0)
+    #database_filename = "medial_der.csv"
+    #reference_point = "lambda"
+    #coordinate0 = [33, 15, 63.7]
+    print(coordinate0)
+    #test_inputs(database_filename, reference_point, coordinate0)
 
-nucleo = class_module.Nucleo(database_filename, reference_point, coordinate0)
+    nucleo = class_module.Nucleo(database_filename, reference_point, coordinate0)
 
-nucleo.read_list()
-nucleo.create_point()
+    nucleo.read_list()
+    nucleo.create_point()
 
-coordinates_result = nucleo.get_coordinates()
+    coordinates_result = nucleo.get_coordinates()
 
-print(coordinates_result)
+    print(coordinates_result)
+
+
+if __name__ == '__main__':
+    brain_coord()
