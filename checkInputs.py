@@ -5,7 +5,7 @@ class InadequateFormatException(Exception):
         Exception.__init__(self, "Texto para punto de referencia Incorrecto. Inserte 'bregma' o 'lambda'")
 
 
-def test_referece_point(reference_point):
+def checkFormat_referece_point(reference_point):
     if type(reference_point) == str:
         if reference_point == "bregma" or reference_point == "lambda":
             return True
@@ -16,7 +16,7 @@ def test_referece_point(reference_point):
         raise InadequateFormatException()
 
 
-def test_format_coordinate0(coordinate0, reference_point):
+def checkFormat_coordinate0(coordinate0, reference_point):
     """Checa la coordenadas es una lista valida con numeros"""
     if type(coordinate0) == list:
         if len(coordinate0) == 3:
@@ -34,7 +34,7 @@ def test_format_coordinate0(coordinate0, reference_point):
     return True
 
 
-def test_coordinate0(coordinate0, reference_point):
+def checkValues_coordinate0(coordinate0, reference_point):
     """Checa los elementos de la lista de coordenada estan en el rango correcto"""
 
     # AP
@@ -65,7 +65,7 @@ def test_coordinate0(coordinate0, reference_point):
     return True
 
 
-def check_file_exists(database_filename):
+def checkExistence_file(database_filename):
     try:
         with open(database_filename) as file:
             read_data = file.read()
@@ -73,8 +73,8 @@ def check_file_exists(database_filename):
         raise Exception("No pude abrir el archivo '" + database_filename + "'")
     return True
 
-# ToDo Esta funcion podria ser mas robusta al formtato de entrada pero en general hace buen trabajo
-def check_file_format(database_filename):
+# ToDo Esta funcion podria ser mas robusta al formato de la tabla pero en general hace buen trabajo
+def checkFormat_file(database_filename):
     try:
         # Lee el archivo usando numpy, si hay algo mal Numpy arroja la excepcion
         dataset = np.genfromtxt(database_filename, skip_header=1, delimiter=",", usecols=(
