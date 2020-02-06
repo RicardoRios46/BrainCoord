@@ -90,7 +90,7 @@ class Nucleo():
         self.__yRange = self.ventral_range - self.dorso_range
         # Obtenemos el area de los cuadrados en la base de datos
         self.__area = abs(self.__xRange * self.__yRange)
-        self.__cuadro_chido = self.__find_cuadrochido()
+        self.__cuadro_chido = self.__find_cuadro_chido()
 
         # Prints para debuug
         print("indice cuadro chido= ", self.__cuadro_chido)
@@ -107,7 +107,7 @@ class Nucleo():
         ml = self.coordinate0[1] + self.__xRange[self.__cuadro_chido] / 2
         vd = self.coordinate0[2] - (self.__yRange[self.__cuadro_chido] / 2 + self.dorso_range[self.__cuadro_chido])
 
-        # Prints para debug
+        # Prints para debug ToDo ponerlos para logging
         print("lambda_range=", self.lambda_range[self.__cuadro_chido])
         print("x_range/2=", self.__xRange[self.__cuadro_chido] / 2)
         print("y_range/2=", self.__yRange[self.__cuadro_chido] / 2)

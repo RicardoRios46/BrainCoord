@@ -21,14 +21,14 @@ import click
 
 
 @click.command()
-@click.option('--database_filename', prompt = 'Introduce your text file name within the extention')
+@click.option('--database_filename', prompt = 'Choose a nucleus')
 @click.option('--reference_point',  prompt = 'Introduce you reference point (bregma or lambda)')
 @click.option('--ap', prompt = 'Introduce AP coordinate',type=float)
 @click.option('--ml', prompt = 'Introduce ML coordinate',type=float)
 @click.option('--dv', prompt = 'Introduce DV coordinate',type=float)
 def brain_coord(database_filename, reference_point, ap, ml, dv):
     coordinate0 = [ap, ml, dv]
-
+    database_filename = database_filename + ".csv"
     chI.checkFormat_referece_point(reference_point)
     chI.checkFormat_coordinate0(coordinate0)
     chI.checkValues_coordinate0(coordinate0, reference_point)
