@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to BrainCoord’s documentation! &#8212; BrainCoord .1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-braincoord-s-documentation">
+<h1>Welcome to BrainCoord’s documentation!<a class="headerlink" href="#welcome-to-braincoord-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-class_module"></span><dl class="class">
+<dt id="class_module.Nucleo">
+<em class="property">class </em><code class="sig-prename descclassname">class_module.</code><code class="sig-name descname">Nucleo</code><span class="sig-paren">(</span><em class="sig-param">database_filename</em>, <em class="sig-param">reference_point</em>, <em class="sig-param">coordinate0</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class used for each nuclei to identify.</p>
+<p>…</p>
+<dl>
+<dt>database_filename<span class="classifier">str</span></dt><dd><p>file type .csv that contain the list of coordinates per nuclei</p>
+</dd>
+<dt>reference_point<span class="classifier">str</span></dt><dd><blockquote>
+<div><p>reseracher choose point, (options bregma or lambda)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>coordinate0<span class="classifier">float</span></dt><dd><p>coordinates in AP, ML, DV axis belonging to the choosed reference point in the current mouse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="simple">
+<dt>read_list(.csv file)</dt><dd><p>Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregmba, ML, DV.</p>
+</dd>
+<dt>create_point</dt><dd><p>Calculates the central point of the target nuclei at the position of the biggest area.</p>
+</dd>
+<dt>get_coordinates</dt><dd><p>Gives the resultant coordinates to move on, based on the coordinate0 and the traget nuclei.</p>
+</dd>
+<dt>def update_bitacore </dt><dd><p>Print the resultant coordinates and mouse characteristics to use as lab-book.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="class_module.Nucleo.read_list">
+<code class="sig-name descname">read_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.read_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Docummenting function blah blah blah</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">BrainCoord</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Equipo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
