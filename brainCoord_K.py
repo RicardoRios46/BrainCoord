@@ -1,13 +1,4 @@
 import numpy as np
-import click
-
-#Click implementation
-@click.command()
-@click.option('--database_filename', prompt = 'Introduce your text file name within the extention')
-@click.option('--reference_point',  prompt = 'Introduce you reference point (bregma or lambda):')
-@click.option('--coordinate0', prompt = 'Introduce your cero coordinates:')
-
-
 
 
 class Nucleo():
