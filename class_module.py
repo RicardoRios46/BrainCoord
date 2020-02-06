@@ -52,6 +52,15 @@ class Nucleo():
         self.__area = abs(self.__xRange * self.__yRange)
         self.__cuadro_chido = self.__area.argmax()
 
+        max_area = 0
+        indx_max_area = 0
+        indx = 0
+        for area in self.__area:
+            if area > max_area:
+                max_area = area
+                indx_max_area = indx
+                indx += 1
+
         # Prints para debuug
         print("indice cuadro chido= ", self.__cuadro_chido)
         print("xRange=", self.__xRange[self.__cuadro_chido])
