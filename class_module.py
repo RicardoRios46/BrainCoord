@@ -2,12 +2,38 @@ import numpy as np
 
 
 class Nucleo():
-    # Atributos publicos de los inputs.
+    """A class used for each nuclei to identify.
+    
+    ...
+    
+    
+    Atributes
+    ---------
+    database_filename : str
+        file type .csv that contain the list of coordinates per nuclei
+    reference_point : str
+        reseracher choose point, (options bregma or lambda)
+     coordinate0 : float
+         coordinates in AP, ML, DV axis belonging to the choosed reference point in the current mouse
+    
+    Methods
+    -------
+    read_list(.csv file)
+        Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregmba, ML, DV. 
+    create_point
+        Calculates the central point of the target nuclei at the position of the biggest area.
+    get_coordinates
+        Gives the resultant coordinates to move on, based on the coordinate0 and the traget nuclei.
+    def update_bitacore 
+        Print the resultant coordinates and mouse characteristics to use as lab-book.
+   """
+    
+    # Atributos públicos de los inputs.
     database_filename = "nombre del archivo"
     reference_point = None  # lambda o bregma
     coordinate0 = [0, 0, 0]
 
-    # Atributos publicos. Estas variables contendran columnas con la info de las coordenadas
+    # Atributos públicos. Estas variables contendran columnas con la info de las coordenadas
     lambda_range = None
     bregma_range = None
     medio_range = None
@@ -39,29 +65,34 @@ class Nucleo():
         return indx_max_area
 
     def read_list(self):
+<<<<<<< Updated upstream
         """ Docummenting function blah blah blah"""
         # ToDo revisar el caso cuando solo hay una fila
         dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(
             range(6)))  # Cargamos el .csv, no tomamos el header y solo carmaos las primeras 5 columnas
         dataset = dataset[~np.isnan(dataset).any(axis=1)]  # Eliminamos las filas con NaNs
         print(dataset[3,:])
-        # Rellenamos las variables del objeto con la info de la tabla
+=======
+        dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(range(6))) # Cargamos el .csv, no tomamos el header y solo cargamos las primeras 5 columnas
+        dataset = dataset[~np.isnan(dataset).any(axis=1)] # Eliminamos las filas con NaNs
+>>>>>>> Stashed changes
+        # Rellenamos las variables del objeto con la informción de la tabla
         self.lambda_range = dataset[:, 0]
         self.bregma_range = dataset[:, 1]
         self.lateral_range = dataset[:, 2]
         self.medio_range = dataset[:, 3]
         self.dorso_range = dataset[:, 4]
         self.ventral_range = dataset[:, 5]
-        # El numero total de filas
+        # El número total de filas
         self.n_points = self.bregma_range.size
 
     def create_point(self):
-        # Obtenemos las ditancias de los cuadrados en la base de datos
+        # Obtenemos las distancias de los cuadrados en la base de datos
         self.__xRange = self.medio_range - self.lateral_range
         self.__yRange = self.ventral_range - self.dorso_range
         # Obtenemos el area de los cuadrados en la base de datos
         self.__area = abs(self.__xRange * self.__yRange)
-        self.__cuadro_chido = self.__find_cuadrochido()
+        self.__cuadro_chido = self.__find_cuadro_chido()
 
         # Prints para debuug
         print("indice cuadro chido= ", self.__cuadro_chido)
