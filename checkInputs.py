@@ -38,30 +38,28 @@ def checkValues_coordinate0(coordinate0, reference_point):
     """Checa los elementos de la lista de coordenada estan en el rango correcto"""
 
     # AP
-    if reference_point == "lambda":
-        if coordinate0[0] < 8.08 and coordinate0[0] > -8:
-            pass  # Entrada en rango correcto
-        else:
-            raise Exception(
-                "Coordenada AP ({}) fuera de rango para lambda, deberia estar entre -8mm y 8.08mm: "
-                .format(len(coordinate0)))
-    else:  # Punto de referencia bregma
-        if coordinate0[0] < 4.28 and coordinate0[0] > -4.2:
-            pass  # Entrada en rango correcto
-        else:
-            raise Exception(
-                "Coordenada AP ({}) fuera de rango para lambda, deberia estar entre -4.2mm y 4.28mm: "
-                .format(len(coordinate0)))
-
-    # ML
-    if coordinate0[0] < 4.32 and coordinate0[0] > -4.32:
+    if 90 > coordinate0[0] > -90:
         pass  # Entrada en rango correcto
     else:
         raise Exception(
-            "Coordenada ML ({}) fuera de rango para lambda, deberia estar entre -4.32mm y 4.32mm: "
+            "Coordenada AP ({}) fuera de rango para lambda, deberia estar entre -90mm y 90mm: "
+            .format(len(coordinate0)))
+    # ML
+    if 90 > coordinate0[1] > -90:
+        pass  # Entrada en rango correcto
+    else:
+        raise Exception(
+            "Coordenada ML ({}) fuera de rango, deberia estar entre -90mm y 90mm: "
             .format(len(coordinate0)))
 
-    # Las coordenadas DV esan libres debido a que depende de los instrumentos usados en el esereotaxico
+    # DV
+    if 90 > coordinate0[2] > -90:
+        pass  # Entrada en rango correcto
+    else:
+        raise Exception(
+            "Coordenada DV ({}) fuera de rango, deberia estar entre -90mm y 90mm: "
+            .format(len(coordinate0)))
+
     return True
 
 
