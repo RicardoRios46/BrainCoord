@@ -27,6 +27,17 @@ class Nucleo():
         self.__area = None
         self.__cuadro_chido = 0
 
+    def __find_cuadro_chido(self):
+        max_area = 0
+        indx_max_area = 0
+        indx = 0
+        for area in self.__area:
+            if area > max_area:
+                max_area = area
+                indx_max_area = indx
+            indx += 1
+        return indx_max_area
+
     def read_list(self):
         """ Docummenting function blah blah blah"""
         # ToDo revisar el caso cuando solo hay una fila
@@ -50,16 +61,7 @@ class Nucleo():
         self.__yRange = self.ventral_range - self.dorso_range
         # Obtenemos el area de los cuadrados en la base de datos
         self.__area = abs(self.__xRange * self.__yRange)
-        self.__cuadro_chido = self.__area.argmax()
-
-        max_area = 0
-        indx_max_area = 0
-        indx = 0
-        for area in self.__area:
-            if area > max_area:
-                max_area = area
-                indx_max_area = indx
-                indx += 1
+        self.__cuadro_chido = self.__find_cuadrochido()
 
         # Prints para debuug
         print("indice cuadro chido= ", self.__cuadro_chido)
