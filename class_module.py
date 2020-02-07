@@ -1,15 +1,13 @@
-from typing import List
-
 import numpy as np
 
 
 class Nucleo():
-    """A class used for each nuclei to identify.
+    """A class used for each nuclei to identify
     
     ...
 
     Attributes
-    ---------
+    ----------
     database_filename : str
         file type .csv that contain the list of coordinates per nuclei
     reference_point : str
@@ -33,7 +31,7 @@ class Nucleo():
     
     Methods
     -------
-    read_list(.csv file)
+    read_list
         Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, ML, DV. 
     create_point
         Calculates the central point of the target nuclei at the position of the biggest area.
@@ -42,7 +40,7 @@ class Nucleo():
     def update_bitacore 
         Print the resultant coordinates and mouse characteristics to use as lab-book.
     """
-    
+
     # Public atributes to the inputs.
     database_filename = "nombre del archivo"
     reference_point = None  # lambda o bregma
@@ -79,7 +77,7 @@ class Nucleo():
         self.__cuadro_chido = 0
 
     def __find_cuadro_chido(self):
-        """ Calculates the square with the biggest area whithin target nuclei.
+        """ Calculates the square with the biggest area whithin target nuclei
 
         Returns
         -------
@@ -98,16 +96,17 @@ class Nucleo():
 
     def read_list(self):
         """Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, medial,
-        lateral, dorsal, ventral.
+        lateral, dorsal, ventral
         """
-       
+
         # ToDo: check the case in which just one raw is entered.
         dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(
             range(6)))  # Upload the .csv, omit the header and consider the 5 columns
         dataset = dataset[~np.isnan(dataset).any(axis=1)]  # Eliminate the columns with NaNs
-        print(dataset[3,:])
-        dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(range(6))) # Upload the             .csv, omit the header and consider the 5 columns
-        dataset = dataset[~np.isnan(dataset).any(axis=1)] # Eliminate the columns with NaNs
+        print(dataset[3, :])
+        # Upload the .csv, omit the header and consider the 5 columns
+        dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(range(6)))
+        dataset = dataset[~np.isnan(dataset).any(axis=1)]  # Eliminate the columns with NaNs
         # Fill object variable with the table data
         self.lambda_range = dataset[:, 0]
         self.bregma_range = dataset[:, 1]
@@ -124,7 +123,7 @@ class Nucleo():
         This function takes the medial value of the total longitud of the nuclei in each axis and calculates the area
         per each AP coordinate. Later on, selects the biggest area.
         """
-        
+
         # To obtain the square from the database
         self.__xRange = self.medio_range - self.lateral_range
         self.__yRange = self.ventral_range - self.dorso_range
@@ -135,29 +134,29 @@ class Nucleo():
         # Prints for debuug
         print("indice cuadro chido= ", self.__cuadro_chido)
         print("xRange=", self.__xRange[self.__cuadro_chido])
-        print("yRange=",self.__yRange[self.__cuadro_chido])
+        print("yRange=", self.__yRange[self.__cuadro_chido])
         print("area=" + str(self.__area[self.__cuadro_chido]))
 
     def get_coordinates(self):
         """Gives the resultant coordinates to move on, based on the entered coordinate0 and the choosed traget nuclei.
-        
+
         Parameters
         ----------
         reference_point : str
             researcher chooses the started point, (options: bregma or lambda)
-        coordinate0 : float
+        coordinate0 : List[float]
             coordinates in AP, ML, DV axis belonging to the choosed reference point in the current mouse.
        
         Returns
         -------
-        list
+        list : List[float]
             a list with the resultant coordinates [AP, ML, DV]
         """
-        
+
         if self.reference_point == "lambda":
             ap = self.coordinate0[0] + self.lambda_range[self.__cuadro_chido]
 
-        else: # using the "bregma"
+        else:  # using the "bregma"
             ap = self.coordinate0[0] + self.bregma_range[self.__cuadro_chido]
         ml = self.coordinate0[1] + self.__xRange[self.__cuadro_chido] / 2
         vd = self.coordinate0[2] - (self.__yRange[self.__cuadro_chido] / 2 + self.dorso_range[self.__cuadro_chido])
@@ -167,16 +166,15 @@ class Nucleo():
         print("x_range/2=", self.__xRange[self.__cuadro_chido] / 2)
         print("y_range/2=", self.__yRange[self.__cuadro_chido] / 2)
 
-        return [round(ap,1), round(ml,1), round(vd,1)]
+        return [round(ap, 1), round(ml, 1), round(vd, 1)]
 
-   
-    def update_bitacore(self):
+    def update_bitacora(self, coordinates_result):
         """Print the resultant coordinates and mouse characteristics to use as lab-book"""
 
         bitacora = open("bitacora.txt", "w")
         bitacora.write("My db used was: " + self.database_filename + "\n" +
-        "My reference point was: " + self.reference_point + "\n" +
-        "My initial coordinates were: " + self.coordinate0 + "\n" +
-        "my final coordinates to used are: " + self.coordinates_result)
+                       "My reference point was: " + self.reference_point + "\n" +
+                       "My initial coordinates were: " + self.coordinate0 + "\n" +
+                       "my final coordinates to used are: " + coordinates_result)
 
         bitacora.close()
