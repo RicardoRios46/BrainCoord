@@ -18,6 +18,13 @@ import class_module
 import checkInputs as chI
 import click
 
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename='debug_file.log',
+    filemode='w'
+)
 
 @click.command()
 @click.option('--database_filename', prompt='Select your nucleus')
@@ -25,7 +32,8 @@ import click
 @click.option('--ap', prompt='Introduce AP coordinate', type=float)
 @click.option('--ml', prompt='Introduce ML coordinate', type=float)
 @click.option('--dv', prompt='Introduce DV coordinate', type=float)
-def brain_coord(database_filename, reference_point, ap, ml, dv):
+@click.option('--bitacora', default = False, help = 'Imprime la bitacora')
+def brain_coord(database_filename, reference_point, ap, ml, dv, bitacora):
     """Input data with the nucleus to reach and the started coordinates took from the mouse.
    
     Atributes
@@ -52,19 +60,19 @@ def brain_coord(database_filename, reference_point, ap, ml, dv):
     chI.checkExistence_file(database_filename)
     chI.checkFormat_file(database_filename)
 
-    # database_filename = "medial_der.csv"
-    # reference_point = "lambda"
-    # coordinate0 = [33, 15, 63.7]
-    print(coordinate0)
-    # test_inputs(database_filename, reference_point, coordinate0)
-
+    # breakpoint()
     nucleo = class_module.Nucleo(database_filename, reference_point, coordinate0)
-
+    # breakpoint()
     nucleo.read_list()
+    # breakpoint()
     nucleo.create_point()
-
+    # breakpoint()
     coordinates_result = nucleo.get_coordinates()
 
+    if bitacora:
+        nucleo.update_bitacora(coordinates_result)
+
+    print(coordinates_result)
     print("The resultantes coordinates to used are: " + coordinates_result + "AP, ML, DV")
 
 
