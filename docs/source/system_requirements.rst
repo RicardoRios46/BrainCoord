@@ -1,0 +1,16 @@
+.. _system-sheet:
+
+*********************
+System requirements
+*********************
+
+BrainCoord is coded in python 3.7 and requires the following libraries:
+
+* NumPy
+
+
+
+
+
+
+============
