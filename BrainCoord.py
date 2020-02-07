@@ -64,7 +64,7 @@ def brain_coord(database_filename, reference_point, ap, ml, dv):
 
     coordinates_result = nucleo.get_coordinates()
 
-    print(coordinates_result)
+    print("The resultantes coordinates to used are: " + coordinates_result + "AP, ML, DV")
 
 
 if __name__ == '__main__':
