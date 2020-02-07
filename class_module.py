@@ -89,7 +89,7 @@ class Nucleo():
         Returns
         -------
         indx_max_area
-            Index with the file of the square qith max area in variables
+            Index with the file of the square with max area in variables
         """
         max_area = 0
         indx_max_area = 0
@@ -125,7 +125,7 @@ class Nucleo():
     def create_point(self):
         """ Calculates the central point of the target nuclei at the position of the biggest area
         
-        This function takes the medial value of the total longitud of the nuclei in each axis and calculates the area
+        This function takes the medial value of the total length of the nuclei in each axis and calculates the area
         per each AP coordinate. Later on, selects the biggest area.
         """
 
