@@ -14,7 +14,6 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Applied knowledge" href="knowledge_from_the_course_applied_to_the_program.html" />
     <link rel="prev" title="System requirements" href="system_requirements.html" />
  
 <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -111,7 +110,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#class_module.Nucleo.get_coordinates" title="class_module.Nucleo.get_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_coordinates</span></code></a>(self)</p></td>
 <td><p>Gives the resultant coordinates to move on, based on the entered coordinate0 and the choosed traget nuclei.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#class_module.Nucleo.update_bitacora" title="class_module.Nucleo.update_bitacora"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_bitacora</span></code></a>(self, coordinates_result)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#class_module.Nucleo.update_logbook" title="class_module.Nucleo.update_logbook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_logbook</span></code></a>(self, coordinates_result)</p></td>
 <td><p>Print the resultant coordinates and mouse characteristics to use as lab-book</p></td>
 </tr>
 </tbody>
@@ -120,7 +119,7 @@
 <dt id="class_module.Nucleo.create_point">
 <code class="sig-name descname">create_point</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.create_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the central point of the target nuclei at the position of the biggest area</p>
-<p>This function takes the medial value of the total longitud of the nuclei in each axis and calculates the area
+<p>This function takes the medial value of the total length of the nuclei in each axis and calculates the area
 per each AP coordinate. Later on, selects the biggest area.</p>
 </dd></dl>
 
@@ -148,6 +147,12 @@ test.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="class_module.Nucleo.print_debugfile">
+<code class="sig-name descname">print_debugfile</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.print_debugfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save debuging messages at ‘debug_file.log’</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="class_module.Nucleo.read_list">
 <code class="sig-name descname">read_list</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.read_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, medial,
@@ -155,8 +160,8 @@ lateral, dorsal, ventral</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="class_module.Nucleo.update_bitacora">
-<code class="sig-name descname">update_bitacora</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">coordinates_result</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.update_bitacora" title="Permalink to this definition">¶</a></dt>
+<dt id="class_module.Nucleo.update_logbook">
+<code class="sig-name descname">update_logbook</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">coordinates_result</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.update_logbook" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print the resultant coordinates and mouse characteristics to use as lab-book</p>
 </dd></dl>
 
@@ -175,9 +180,6 @@ lateral, dorsal, ventral</p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="system_requirements.html"
                         title="previous chapter">System requirements</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="knowledge_from_the_course_applied_to_the_program.html"
-                        title="next chapter">Applied knowledge</a></p>
 </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
