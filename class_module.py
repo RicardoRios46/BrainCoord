@@ -36,8 +36,8 @@ class Nucleo():
     create_point
         Calculates the central point of the target nuclei at the position of the biggest area.
     get_coordinates
-        Gives the resultant coordinates to move on, based on the coordinate0 and the traget nuclei.
-    def update_bitacore 
+        Gives the resultant coordinates to move on, based on the coordinate0 and the target nuclei.
+    update_bitacora
         Print the resultant coordinates and mouse characteristics to use as lab-book.
     """
 
@@ -139,6 +139,7 @@ class Nucleo():
 
     def get_coordinates(self):
         """Gives the resultant coordinates to move on, based on the entered coordinate0 and the choosed traget nuclei.
+        test.
 
         Parameters
         ----------
