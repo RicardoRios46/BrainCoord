@@ -18,13 +18,6 @@ import class_module
 import checkInputs as chI
 import click
 
-import logging
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    filename='debug_file.log',
-    filemode='w'
-)
 
 @click.command()
 @click.option('--database_filename', prompt='Select your nucleus')
@@ -32,10 +25,11 @@ logging.basicConfig(
 @click.option('--ap', prompt='Introduce AP coordinate', type=float)
 @click.option('--ml', prompt='Introduce ML coordinate', type=float)
 @click.option('--dv', prompt='Introduce DV coordinate', type=float)
-@click.option('--bitacora', default = False, help = 'Imprime la bitacora')
-def brain_coord(database_filename, reference_point, ap, ml, dv, bitacora):
+@click.option('--logbook', default=False, help='Save results at "logbook.txt"')
+@click.option('--debug', default=False, help='Save debuging messages at "debug_file.log"')
+def brain_coord(database_filename, reference_point, ap, ml, dv, logbook, debug):
     """Input data with the nucleus to reach and the started coordinates took from the mouse.
-   
+
     Atributes
     ---------
     database_filename : str
@@ -49,11 +43,12 @@ def brain_coord(database_filename, reference_point, ap, ml, dv, bitacora):
     dv : float
         dorso-ventral coordinate
     """
-    print("Your inputs introduced are: " + database_filename + ", "+ reference_point + ", AP coord: " + ap + /
-    ", ML coord: " + ml + ", DV coord: " + dv) 
+
+    print("Your inputs introduced are: " + database_filename + ", " + reference_point + ", AP coord: " + str(ap) +
+          ", ML coord: " + str(ml) + ", DV coord: " + str(dv))
     coordinate0 = [ap, ml, dv]
     database_filename = database_filename + ".csv"
-    print(database_filename)
+
     chI.checkFormat_referece_point(reference_point)
     chI.checkFormat_coordinate0(coordinate0)
     chI.checkValues_coordinate0(coordinate0, reference_point)
@@ -62,6 +57,7 @@ def brain_coord(database_filename, reference_point, ap, ml, dv, bitacora):
 
     # breakpoint()
     nucleo = class_module.Nucleo(database_filename, reference_point, coordinate0)
+
     # breakpoint()
     nucleo.read_list()
     # breakpoint()
@@ -69,11 +65,15 @@ def brain_coord(database_filename, reference_point, ap, ml, dv, bitacora):
     # breakpoint()
     coordinates_result = nucleo.get_coordinates()
 
-    if bitacora:
-        nucleo.update_bitacora(coordinates_result)
+    if debug:
+        nucleo.print_debugfile()
 
-    print(coordinates_result)
-    print("The resultantes coordinates to used are: " + coordinates_result + "AP, ML, DV")
+    # Esta bandera imprime la logbook en un archivo
+    if logbook:
+        nucleo.update_logbook(coordinates_result)
+
+    # Imprime los resultados en pantalla
+    print("The resultantes coordinates to used are: " + str(coordinates_result) + " AP, ML, DV")
 
 
 if __name__ == '__main__':

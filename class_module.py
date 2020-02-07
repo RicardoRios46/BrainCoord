@@ -1,5 +1,12 @@
 import numpy as np
+import logging
+from datetime import datetime
 
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename='debug_file.log',
+    filemode='w'
+)
 
 class Nucleo():
     """A class used for each nuclei to identify
@@ -37,7 +44,7 @@ class Nucleo():
         Calculates the central point of the target nuclei at the position of the biggest area.
     get_coordinates
         Gives the resultant coordinates to move on, based on the coordinate0 and the target nuclei.
-    update_bitacora
+    update_logbook
         Print the resultant coordinates and mouse characteristics to use as lab-book.
     """
 
@@ -99,11 +106,9 @@ class Nucleo():
         lateral, dorsal, ventral
         """
 
-        # ToDo: check the case in which just one raw is entered.
         dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(
             range(6)))  # Upload the .csv, omit the header and consider the 5 columns
         dataset = dataset[~np.isnan(dataset).any(axis=1)]  # Eliminate the columns with NaNs
-        print(dataset[3, :])
         # Upload the .csv, omit the header and consider the 5 columns
         dataset = np.genfromtxt(self.database_filename, skip_header=1, delimiter=",", usecols=(range(6)))
         dataset = dataset[~np.isnan(dataset).any(axis=1)]  # Eliminate the columns with NaNs
@@ -131,11 +136,7 @@ class Nucleo():
         self.__area = abs(self.__xRange * self.__yRange)
         self.__cuadro_chido = self.__find_cuadro_chido()
 
-        # Prints for debuug
-        print("indice cuadro chido= ", self.__cuadro_chido)
-        print("xRange=", self.__xRange[self.__cuadro_chido])
-        print("yRange=", self.__yRange[self.__cuadro_chido])
-        print("area=" + str(self.__area[self.__cuadro_chido]))
+
 
     def get_coordinates(self):
         """Gives the resultant coordinates to move on, based on the entered coordinate0 and the choosed traget nuclei.
@@ -162,19 +163,26 @@ class Nucleo():
         ml = self.coordinate0[1] + self.__xRange[self.__cuadro_chido] / 2
         vd = self.coordinate0[2] - (self.__yRange[self.__cuadro_chido] / 2 + self.dorso_range[self.__cuadro_chido])
 
-        # Prints for debug
-        print("lambda_range=", self.lambda_range[self.__cuadro_chido])
-        print("x_range/2=", self.__xRange[self.__cuadro_chido] / 2)
-        print("y_range/2=", self.__yRange[self.__cuadro_chido] / 2)
-
         return [round(ap, 1), round(ml, 1), round(vd, 1)]
 
-    def update_bitacora(self, coordinates_result):
+    def update_logbook(self, coordinates_result):
         """Print the resultant coordinates and mouse characteristics to use as lab-book"""
-        bitacora = open("bitacora.txt", "w")
-        bitacora.write("Nucleus database used was: " + self.database_filename + "\n" +
+        logbook = open("logbook.txt", "w")
+        logbook.write("Nucleus database used was: " + self.database_filename + "\n" +
                        "My reference point was: " + self.reference_point + "\n" +
                        "My initial coordinates were: " + str(self.coordinate0) + "\n" +
-                       "My final coordinates to used are: " + str(coordinates_result))
+                       "My final coordinates to used are: " + str(coordinates_result) + "\n" +
+                       str(datetime.now()) )
 
-        bitacora.close()
+        logbook.close()
+
+    def print_debugfile(self):
+        """Save debuging messages at 'debug_file.log'"""
+        logging.debug("Indice cuadro chido= " + str(self.__cuadro_chido))
+        logging.debug("xRange=" + str(self.__xRange[self.__cuadro_chido]))
+        logging.debug("yRange=" + str(self.__yRange[self.__cuadro_chido]))
+        logging.debug("area=" + str(self.__area[self.__cuadro_chido]))
+
+        logging.debug("lambda_range=" + str(self.lambda_range[self.__cuadro_chido]))
+        logging.debug("x_range/2=" + str(self.__xRange[self.__cuadro_chido] / 2))
+        logging.debug("y_range/2=" + str(self.__yRange[self.__cuadro_chido] / 2))
