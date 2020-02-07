@@ -1,7 +1,7 @@
 .. _classes-sheet:
 
 ******************
-Classes 
+Classes
 ******************
 
 The following classes and functions were defined for the function of BrainCoord
@@ -9,3 +9,5 @@ The following classes and functions were defined for the function of BrainCoord
 .. automodule:: class_module
    :members:
 
+.. automodule:: checkInputs
+   :members:
