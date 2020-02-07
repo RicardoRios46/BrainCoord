@@ -8,10 +8,14 @@ Welcome to BrainCoord's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
-.. automodule:: class_module
-   :members:
+   brainCoord_general_description.rst
+   flowchart.rst
+   background.rst
+   system_requirements.rst
+   classes.rst
+
+   :caption: Contents:
 
 
 Indices and tables
