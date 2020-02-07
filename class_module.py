@@ -170,7 +170,7 @@ class Nucleo():
         return [round(ap, 1), round(ml, 1), round(vd, 1)]
 
     def update_bitacora(self, coordinates_result):
-        """Print the resultant coordinates and mouse characteristics to use as lab-book"""
+        """Print the resultant coordinates and mouse characteristics to use as logbook"""
 
         bitacora = open("bitacora.txt", "w")
         bitacora.write("My db used was: " + self.database_filename + "\n" +
