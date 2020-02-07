@@ -1,3 +1,5 @@
+from typing import List
+
 import numpy as np
 
 
@@ -5,9 +7,8 @@ class Nucleo():
     """A class used for each nuclei to identify.
     
     ...
-    
-    
-    Atributes
+
+    Attributes
     ---------
     database_filename : str
         file type .csv that contain the list of coordinates per nuclei
@@ -29,7 +30,6 @@ class Nucleo():
         accpetable range in mm for ventral coordinate (up to 90)
     n_points : float
         total row number in the datalist
-    
     
     Methods
     -------
@@ -65,7 +65,7 @@ class Nucleo():
             file type .csv that contain the list of coordinates per nuclei
         reference_point : str
             researcher chooses point, (options bregma or lambda)
-        coordinate0 : float
+        coordinate0 : List[float]
             coordinates in AP, ML, DV axis belonging to the choosed reference point in the current mouse
         """
         self.database_filename = database_filename
@@ -73,15 +73,19 @@ class Nucleo():
         self.coordinate0 = coordinate0
 
         # Private atributes
-        
         self.__xRange = None
         self.__yRange = None
         self.__area = None
         self.__cuadro_chido = 0
 
     def __find_cuadro_chido(self):
-        """ Calculates the AP coordinate with the biggest area of the target nuclei."""
-        
+        """ Calculates the square with the biggest area whithin target nuclei.
+
+        Returns
+        -------
+        indx_max_area
+            Index with the file of the square qith max area in variables
+        """
         max_area = 0
         indx_max_area = 0
         indx = 0
@@ -93,21 +97,8 @@ class Nucleo():
         return indx_max_area
 
     def read_list(self):
-        """Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, medial,                 lateral, dorsal, ventral.
-        
-        ----------
-        lambda_range : float
-            accpetable range in mm for lambda coordinate (up to 90)
-        bregma_range : float
-            accpetable range in mm for bregma coordinate (up to 90)
-        medio_range : float
-            accpetable range in mm for medial coordinate (up to 90)
-        lateral_range : float
-            accpetable range in mm for lateral coordinate (up to 90)
-        dorso_range : float
-            accpetable range in mm for dorsal coordinate (up to 90)
-        ventral_range : float
-            accpetable range in mm for ventral coordinate (up to 90)
+        """Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, medial,
+        lateral, dorsal, ventral.
         """
        
         # ToDo: check the case in which just one raw is entered.
@@ -130,7 +121,8 @@ class Nucleo():
     def create_point(self):
         """ Calculates the central point of the target nuclei at the position of the biggest area
         
-        This function takes the medial value of the total longitud of the nuclei in each axis and calculates the area per           each AP coordinate. Later on, selects the biggest area. 
+        This function takes the medial value of the total longitud of the nuclei in each axis and calculates the area
+        per each AP coordinate. Later on, selects the biggest area.
         """
         
         # To obtain the square from the database
@@ -159,7 +151,7 @@ class Nucleo():
         Returns
         -------
         list
-            a list with the resultant coordinates [AP, ML, VD] 
+            a list with the resultant coordinates [AP, ML, DV]
         """
         
         if self.reference_point == "lambda":
@@ -180,5 +172,11 @@ class Nucleo():
    
     def update_bitacore(self):
         """Print the resultant coordinates and mouse characteristics to use as lab-book"""
-        
-        print("Actualizar e impimir bitacora")
+
+        bitacora = open("bitacora.txt", "w")
+        bitacora.write("My db used was: " + self.database_filename + "\n" +
+        "My reference point was: " + self.reference_point + "\n" +
+        "My initial coordinates were: " + self.coordinate0 + "\n" +
+        "my final coordinates to used are: " + self.coordinates_result)
+
+        bitacora.close()
