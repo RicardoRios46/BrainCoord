@@ -46,3 +46,5 @@ python braincoord.py --logbook True
 ```bash
 python braincoord.py --debug True
 ```
+
+#### Entire documentation can be found at  [documentation](./docs/build/html)
