@@ -125,18 +125,31 @@
 <span class="target" id="module-class_module"></span><dl class="class">
 <dt id="class_module.Nucleo">
 <em class="property">class </em><code class="sig-prename descclassname">class_module.</code><code class="sig-name descname">Nucleo</code><span class="sig-paren">(</span><em class="sig-param">database_filename</em>, <em class="sig-param">reference_point</em>, <em class="sig-param">coordinate0</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class used for each nuclei to identify.</p>
+<dd><p>A class used for each nuclei to identify</p>
 <p>…</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>bregma_range</strong></dt><dd></dd>
-<dt><strong>dorso_range</strong></dt><dd></dd>
-<dt><strong>lambda_range</strong></dt><dd></dd>
-<dt><strong>lateral_range</strong></dt><dd></dd>
-<dt><strong>medio_range</strong></dt><dd></dd>
-<dt><strong>reference_point</strong></dt><dd></dd>
-<dt><strong>ventral_range</strong></dt><dd></dd>
+<dt><strong>database_filename</strong><span class="classifier">str</span></dt><dd><p>file type .csv that contain the list of coordinates per nuclei</p>
+</dd>
+<dt><strong>reference_point</strong><span class="classifier">str</span></dt><dd><p>researcher chooses point, (options bregma or lambda)</p>
+</dd>
+<dt><strong>coordinate0</strong><span class="classifier">float</span></dt><dd><p>coordinates in AP, ML, DV axis belonging to the choosed reference point in the current mouse</p>
+</dd>
+<dt><strong>lambda_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for lambda coordinate (up to 90)</p>
+</dd>
+<dt><strong>bregma_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for bregma coordinate (up to 90)</p>
+</dd>
+<dt><strong>medio_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for medial coordinate (up to 90)</p>
+</dd>
+<dt><strong>lateral_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for lateral coordinate (up to 90)</p>
+</dd>
+<dt><strong>dorso_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for dorsal coordinate (up to 90)</p>
+</dd>
+<dt><strong>ventral_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for ventral coordinate (up to 90)</p>
+</dd>
+<dt><strong>n_points</strong><span class="classifier">float</span></dt><dd><p>total row number in the datalist</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -147,25 +160,17 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#class_module.Nucleo.create_point" title="class_module.Nucleo.create_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_point</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#class_module.Nucleo.read_list" title="class_module.Nucleo.read_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_list</span></code></a>(self)</p></td>
+<td><p>Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, medial, lateral, dorsal, ventral</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#class_module.Nucleo.create_point" title="class_module.Nucleo.create_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_point</span></code></a>(self)</p></td>
 <td><p>Calculates the central point of the target nuclei at the position of the biggest area</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#class_module.Nucleo.get_coordinates" title="class_module.Nucleo.get_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_coordinates</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#class_module.Nucleo.get_coordinates" title="class_module.Nucleo.get_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_coordinates</span></code></a>(self)</p></td>
 <td><p>Gives the resultant coordinates to move on, based on the entered coordinate0 and the choosed traget nuclei.</p></td>
 </tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 81%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><strong>read_list(.csv file)</strong></p></td>
-<td><p>Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, ML, DV.</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>def update_bitacore</strong></p></td>
-<td><p>Print the resultant coordinates and mouse characteristics to use as lab-book.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#class_module.Nucleo.update_bitacora" title="class_module.Nucleo.update_bitacora"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_bitacora</span></code></a>(self, coordinates_result)</p></td>
+<td><p>Print the resultant coordinates and mouse characteristics to use as lab-book</p></td>
 </tr>
 </tbody>
 </table>
@@ -173,25 +178,27 @@
 <dt id="class_module.Nucleo.create_point">
 <code class="sig-name descname">create_point</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.create_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the central point of the target nuclei at the position of the biggest area</p>
-<p>This function takes the medial value of the total longitud of the nuclei in each axis and calculates the area per           each AP coordinate. Later on, selects the biggest area.</p>
+<p>This function takes the medial value of the total longitud of the nuclei in each axis and calculates the area
+per each AP coordinate. Later on, selects the biggest area.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="class_module.Nucleo.get_coordinates">
 <code class="sig-name descname">get_coordinates</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.get_coordinates" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gives the resultant coordinates to move on, based on the entered coordinate0 and the choosed traget nuclei.</p>
+<dd><p>Gives the resultant coordinates to move on, based on the entered coordinate0 and the choosed traget nuclei.
+test.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>reference_point</strong><span class="classifier">str</span></dt><dd><p>researcher chooses the started point, (options: bregma or lambda)</p>
 </dd>
-<dt><strong>coordinate0</strong><span class="classifier">float</span></dt><dd><p>coordinates in AP, ML, DV axis belonging to the choosed reference point in the current mouse.</p>
+<dt><strong>coordinate0</strong><span class="classifier">List[float]</span></dt><dd><p>coordinates in AP, ML, DV axis belonging to the choosed reference point in the current mouse.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>list</dt><dd><p>a list with the resultant coordinates [AP, ML, VD]</p>
+<dt><strong>list</strong><span class="classifier">List[float]</span></dt><dd><p>a list with the resultant coordinates [AP, ML, DV]</p>
 </dd>
 </dl>
 </dd>
@@ -201,26 +208,13 @@
 <dl class="method">
 <dt id="class_module.Nucleo.read_list">
 <code class="sig-name descname">read_list</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.read_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, medial,                 lateral, dorsal, ventral.</p>
-<dl class="simple">
-<dt>lambda_range<span class="classifier">float</span></dt><dd><p>accpetable range in mm for lambda coordinate (up to 90)</p>
-</dd>
-<dt>bregma_range<span class="classifier">float</span></dt><dd><p>accpetable range in mm for bregma coordinate (up to 90)</p>
-</dd>
-<dt>medio_range<span class="classifier">float</span></dt><dd><p>accpetable range in mm for medial coordinate (up to 90)</p>
-</dd>
-<dt>lateral_range<span class="classifier">float</span></dt><dd><p>accpetable range in mm for lateral coordinate (up to 90)</p>
-</dd>
-<dt>dorso_range<span class="classifier">float</span></dt><dd><p>accpetable range in mm for dorsal coordinate (up to 90)</p>
-</dd>
-<dt>ventral_range<span class="classifier">float</span></dt><dd><p>accpetable range in mm for ventral coordinate (up to 90)</p>
-</dd>
-</dl>
+<dd><p>Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, medial,
+lateral, dorsal, ventral</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="class_module.Nucleo.update_bitacore">
-<code class="sig-name descname">update_bitacore</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.update_bitacore" title="Permalink to this definition">¶</a></dt>
+<dt id="class_module.Nucleo.update_bitacora">
+<code class="sig-name descname">update_bitacora</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">coordinates_result</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.update_bitacora" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print the resultant coordinates and mouse characteristics to use as lab-book</p>
 </dd></dl>
 
