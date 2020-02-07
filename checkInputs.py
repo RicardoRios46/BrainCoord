@@ -1,11 +1,15 @@
 import numpy as np
 
+
 class InadequateFormatException(Exception):
-    def __init__(self, *args, **kwargs):  # inicializamos la clase con los argumentos que recibimos por default
-        Exception.__init__(self, "Texto para punto de referencia Incorrecto. Inserte 'bregma' o 'lambda'")
+    """ This class derivaded from Exception that raise the message error"""
+
+    def __init__(self, *args, **kwargs):  # start the class with the default arguments
+        Exception.__init__(self, "Incorrect reference point text. Insert 'bregma' or 'lambda'")
 
 
 def checkFormat_referece_point(reference_point):
+    """"This funcion check if the reference point is writting correctly 'bregma' or 'lambda' """
     if type(reference_point) == str:
         if reference_point == "bregma" or reference_point == "lambda":
             return True
@@ -17,67 +21,70 @@ def checkFormat_referece_point(reference_point):
 
 
 def checkFormat_coordinate0(coordinate0):
-    """Checa la coordenadas es una lista valida con numeros"""
+    """Function that probe the coordinates are in a number list"""
     if type(coordinate0) == list:
         if len(coordinate0) == 3:
             for elem in coordinate0:
                 try:
                     float(elem)
-                except Exception as e: # ToDo checar por que es una except solo
-                    raise Exception("La coordenada '" + str(elem) + "' no es un numero")
+                except Exception as e:
+                    raise Exception("The coordinate '" + str(elem) + "' is not a number")
 
         else:
-            raise Exception("Faltan coordenadas, solo habia: {}".format(len(coordinate0)))
+            raise Exception("Missing coordinates, there is only: {}".format(len(coordinate0)))
     else:
-        raise Exception("Formato de coordenadas incorrecto. Debe ser una lista con 3 coordenadas.")
+        raise Exception("Incorrect coordinate format. Most be a list with 3 coordinate.")
 
     return True
 
 
 def checkValues_coordinate0(coordinate0, reference_point):
-    """Checa los elementos de la lista de coordenada estan en el rango correcto"""
+    """Function that check the range of the input coordinates to be rigth"""
 
     # AP
     if 90 > coordinate0[0] > -90:
-        pass  # Entrada en rango correcto
+        pass  # Entry in correct range
     else:
         raise Exception(
-            "Coordenada AP ({}) fuera de rango para lambda, deberia estar entre -90mm y 90mm: "
-            .format(len(coordinate0)))
+            "Coordinate AP ({}) out of range for lambda, should be between -90mm and 90mm: "
+                .format(len(coordinate0)))
     # ML
     if 90 > coordinate0[1] > -90:
-        pass  # Entrada en rango correcto
+        pass  # Entry in correct range
     else:
         raise Exception(
-            "Coordenada ML ({}) fuera de rango, deberia estar entre -90mm y 90mm: "
-            .format(len(coordinate0)))
+            "Coordinate ML ({}) out of range, should be between -90mm and 90mm: "
+                .format(len(coordinate0)))
 
     # DV
     if 90 > coordinate0[2] > -90:
-        pass  # Entrada en rango correcto
+        pass  # Entry in correct range
     else:
         raise Exception(
-            "Coordenada DV ({}) fuera de rango, deberia estar entre -90mm y 90mm: "
-            .format(len(coordinate0)))
+            "Coordinate DV ({}) out of range, should be between -90mm and 90mm: "
+                .format(len(coordinate0)))
 
     return True
 
 
 def checkExistence_file(database_filename):
+    """Function that check if the db file can be opened"""
     try:
         with open(database_filename) as file:
             read_data = file.read()
     except Exception as e:
-        raise Exception("No pude abrir el archivo '" + database_filename + "'")
+        raise Exception("Could not opened the file '" + database_filename + "'")
     return True
 
-# ToDo Esta funcion podria ser mas robusta al formato de la tabla pero en general hace buen trabajo
+
+# Funtion used to check the format file
 def checkFormat_file(database_filename):
+    """Function that check is the file formart is csv"""
     try:
-        # Lee el archivo usando numpy, si hay algo mal Numpy arroja la excepcion
+        # Read the file using numpy, if there is something wrong numpy thrown the excepcion
         dataset = np.genfromtxt(database_filename, skip_header=1, delimiter=",", usecols=(
-            range(6)), loose = False, invalid_raise = True)
-        dataset = dataset[~np.isnan(dataset).any(axis=1)]  # Eliminamos las filas con NaNs
+            range(6)), loose=False, invalid_raise=True)
+        dataset = dataset[~np.isnan(dataset).any(axis=1)]  # Delate rows with NaNs
     except Exception as e:
-        raise Exception("Archivo '" + database_filename + "' tiene un formato de tabla incorrecto. Revisar documentacion.")
+        raise Exception("File '" + database_filename + "' has to be a csv file. Go to documentation.")
     return True

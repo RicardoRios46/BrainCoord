@@ -1,8 +1,8 @@
 """BrainCoord 
 
-It was built in reference to the Mouse Brain Paxinos Atlas. This script allows to calculate the optimal coordinates to reach any brain nucleus in the mouse, giving the resultant coordinates points (AP, ML, DV) from a coordenate 0 (bregma or lambda), previously entered by the user. In addition this script is open to import datbase of any particular nucleus. The actual version 0.1 includes  
+It was built in reference to the coronal plates from the Mouse Brain Paxinos Atlas. This script allows to calculate the optimal coordinates to reach any brain nucleus in the mouse, giving the resultant coordinates points (AP, ML, DV) from a coordenate 0 (bregma or lambda), previously entered by the user. In addition this script is open to import datbase of any particular nucleus. The actual version 0.1 includes the cerebellar nuclei: medial (MN), lateral vestibular (LVe), medial vestibular parvocelular (MVePc) and anterior Interpositus (IntA).
 
-This tool accepts .cvs files. Which requires to contain the following ordered coordinates (in mm), per each imported nucleus: 
+This tool accepts .cvs files which requires to contain the following ordered coordinates (in mm), per each imported nucleus: 
     * point reference bregma
     * point reference lambda
     * lateral limit 
@@ -21,14 +21,30 @@ import click
 
 
 @click.command()
+""" Shows a str with the variable to enter in each case"""
 @click.option('--database_filename', prompt = 'Introduce your text file name within the extention')
 @click.option('--reference_point',  prompt = 'Introduce you reference point (bregma or lambda)')
 @click.option('--ap', prompt = 'Introduce AP coordinate',type=float)
 @click.option('--ml', prompt = 'Introduce ML coordinate',type=float)
 @click.option('--dv', prompt = 'Introduce DV coordinate',type=float)
+
 def brain_coord(database_filename, reference_point, ap, ml, dv):
     coordinate0 = [ap, ml, dv]
-
+    """Input data with the nucleus to reach and the started coordinates took from the mouse.
+   
+    Atributes
+    ---------
+    database_filename : str
+        file with the target nuclei database
+    reference_point : str 
+        craneal point, options bregma or lambda
+    ap : float
+        anter-posterior coordinate
+    ml : float
+        medio-lateral coordinate
+    dv : float
+        dorso-ventral coordinate
+    """
     chI.checkFormat_referece_point(reference_point)
     chI.checkFormat_coordinate0(coordinate0)
     chI.checkValues_coordinate0(coordinate0, reference_point)
@@ -53,4 +69,3 @@ def brain_coord(database_filename, reference_point, ap, ml, dv):
 
 if __name__ == '__main__':
     brain_coord()
-
