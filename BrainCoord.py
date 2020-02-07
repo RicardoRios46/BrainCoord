@@ -41,7 +41,8 @@ def brain_coord(database_filename, reference_point, ap, ml, dv):
     dv : float
         dorso-ventral coordinate
     """
-
+    print("Your inputs introduced are: " + database_filename + ", "+ reference_point + ", AP coord: " + ap + /
+    ", ML coord: " + ml + ", DV coord: " + dv) 
     coordinate0 = [ap, ml, dv]
     database_filename = database_filename + ".csv"
     print(database_filename)
