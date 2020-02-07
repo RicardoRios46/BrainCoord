@@ -47,4 +47,4 @@ python braincoord.py --logbook True
 python braincoord.py --debug True
 ```
 
-#### Entire documentation can be found at  [documentation](./docs/build/html)
+#### Entire documentation can be found at  [documentation](./docs/build/html/index.html)
