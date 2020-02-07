@@ -10,7 +10,6 @@ This tool accepts .cvs files which requires to contain the following ordered coo
 - dorsal limit
 - ventral limit
     
-This script requires that `NumPy` be installed within the actual Python environment.
 
 ## How to use it?
 
@@ -50,6 +49,5 @@ python braincoord.py --debug True
 You will find the documentation in a zip file, open the file "index.html"
 
 ## Requirements
-You will find a file call "requirements.txt" where is explicit the libraries need it.
+You will find a file call "requirements.txt" where is explicit the libraries need run the script.
 
-#### Entire documentation can be found at  [documentation](./docs/build/html/index.html)
