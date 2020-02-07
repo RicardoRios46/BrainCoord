@@ -46,5 +46,10 @@ python braincoord.py --logbook True
 ```bash
 python braincoord.py --debug True
 ```
+## Documentation
+You will find the documentation in a zip file, open the file "index.html"
+
+## Requirements
+You will find a file call "requirements.txt" where is explicit the libraries need it.
 
 #### Entire documentation can be found at  [documentation](./docs/build/html/index.html)
