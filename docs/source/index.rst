@@ -6,6 +6,11 @@
 Welcome to BrainCoord's documentation!
 ======================================
 
+.. image::
+   _static/LOGO.png
+   :scale: 50 %
+   :alt: LOGO
+
 .. toctree::
    :maxdepth: 2
 
@@ -14,12 +19,12 @@ Welcome to BrainCoord's documentation!
    background.rst
    system_requirements.rst
    classes.rst
+   knowledge_from_the_course_applied_to_the_program.rst
 
-   :caption: Contents:
 
 
-Indices and tables
-==================
+
+
 
 * :ref:`genindex`
 * :ref:`modindex`

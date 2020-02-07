@@ -22,7 +22,7 @@ copyright = '2020, BrainTeam'
 author = 'BrainTeam'
 
 # The full version, including alpha/beta/rc tags
-release = '.1'
+release = '0.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -46,7 +46,9 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "yummy_sphinx_theme"
+import oe_sphinx_theme
+html_theme = 'oe_sphinx'
+html_theme_path = [oe_sphinx_theme.get_theme_dir()]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
