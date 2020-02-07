@@ -18,6 +18,13 @@ import class_module
 import checkInputs as chI
 import click
 
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename='debug_file.log',
+    filemode='w'
+)
 
 @click.command()
 @click.option('--database_filename', prompt='Select your nucleus')
@@ -25,7 +32,8 @@ import click
 @click.option('--ap', prompt='Introduce AP coordinate', type=float)
 @click.option('--ml', prompt='Introduce ML coordinate', type=float)
 @click.option('--dv', prompt='Introduce DV coordinate', type=float)
-def brain_coord(database_filename, reference_point, ap, ml, dv):
+@click.option('--bitacora', default = False, help = 'Imprime la bitacora')
+def brain_coord(database_filename, reference_point, ap, ml, dv, bitacora):
     """Input data with the nucleus to reach and the started coordinates took from the mouse.
    
     Atributes
@@ -63,6 +71,9 @@ def brain_coord(database_filename, reference_point, ap, ml, dv):
     nucleo.create_point()
 
     coordinates_result = nucleo.get_coordinates()
+
+    if bitacora:
+        nucleo.update_bitacora(coordinates_result)
 
     print(coordinates_result)
 
