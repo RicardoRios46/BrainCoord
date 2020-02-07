@@ -71,7 +71,7 @@ def checkExistence_file(database_filename):
         with open(database_filename) as file:
             read_data = file.read()
     except Exception as e:
-        raise Exception("Could not opened the file '" + database_filename + "'")
+        raise Exception("Could not opened the file '" + str(database_filename) + "'")
     return True
 
 # Funtion used to check the format file
