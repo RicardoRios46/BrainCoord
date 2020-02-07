@@ -59,17 +59,13 @@ def brain_coord(database_filename, reference_point, ap, ml, dv, bitacora):
     chI.checkExistence_file(database_filename)
     chI.checkFormat_file(database_filename)
 
-    # database_filename = "medial_der.csv"
-    # reference_point = "lambda"
-    # coordinate0 = [33, 15, 63.7]
-    print(coordinate0)
-    # test_inputs(database_filename, reference_point, coordinate0)
-
+    # breakpoint()
     nucleo = class_module.Nucleo(database_filename, reference_point, coordinate0)
-
+    # breakpoint()
     nucleo.read_list()
+    # breakpoint()
     nucleo.create_point()
-
+    # breakpoint()
     coordinates_result = nucleo.get_coordinates()
 
     if bitacora:
