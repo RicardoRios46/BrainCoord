@@ -1,6 +1,10 @@
 # BrainCoord
 
-It was built in reference to the coronal plates from the Mouse Brain Paxinos Atlas. This script allows to calculate the optimal coordinates to reach any brain nucleus in the mouse, giving the resultant coordinates points (AP, ML, DV) from a coordinate 0 (bregma or lambda) previously entered by the user. In addition, this script is open to import datbase of any particular nucleus. The actual version 0.1 includes the cerebellar nuclei: medial (MN), lateral vestibular (LVe), medial vestibular parvocelular (MVePc) and anterior Interpositus (IntA).
+BrainCoord is a program designed to deliver the optimal coordinates for a particular nucleus analyzed through microinjection techniques in mouse.
+
+It computes the target coordinates instantly and error free, improving the researchers work and the whole experiment result. BrainCoord was built in reference to the Mouse Brain Paxinos Atlas. This program allows to calculate the optimal coordinates to reach any brain nucleus in the mouse, delivering the resultant coordinates points (AP, ML, DV) from a coordenate 0 (bregma or lambda), previously entered by the user. In addition, this script allows the importing of a database of any particular nucleus.
+
+In addition, this script is open to import datbase of any particular nucleus. The actual version 0.1 includes the cerebellar nuclei: medial (MN), lateral vestibular (LVe), medial vestibular parvocelular (MVePc) and anterior Interpositus (IntA).
 
 This tool accepts .cvs files which requires to contain the following ordered coordinates (in mm), per each imported nucleus: 
 - point reference bregma
@@ -46,7 +50,7 @@ python braincoord.py --logbook True
 python braincoord.py --debug True
 ```
 ## Documentation
-You will find the documentation in a zip file, open the file "index.html"
+For further information you will find the documentation in a zip file, open the file "index.html"
 
 ## Requirements
 You will find a file call "requirements.txt" where is explicit the libraries need run the script.
