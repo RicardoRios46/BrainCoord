@@ -8,7 +8,7 @@ Welcome to BrainCoord's documentation!
 
 .. image::
    _static/LOGO.png
-   :scale: 50 %
+   :scale: 30 %
    :alt: LOGO
 
 .. toctree::
@@ -19,7 +19,8 @@ Welcome to BrainCoord's documentation!
    background.rst
    system_requirements.rst
    classes.rst
-   knowledge_from_the_course_applied_to_the_program.rst
+   Knowledge_from_the_course_applied_to_the_program.rst
+   
 
 
 
