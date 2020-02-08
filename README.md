@@ -34,13 +34,13 @@ Is important to notice this version only accepts files with a minimun of two row
 ### Optional arguments
 
 As optional functions, You can obtain two output files:
--A logbook that it is a text file with the 0 coordinates, the resultant coordinates and the current date. You have to type at the terminal:
+- A logbook that it is a text file with the 0 coordinates, the resultant coordinates and the current date. You have to type at the terminal:
 
 ```bash
 python braincoord.py --logbook True
 ```
 
--A log file with the debbug report. You have to type at the terminal:
+- A log file with the debbug report. You have to type at the terminal:
 
 ```bash
 python braincoord.py --debug True
