@@ -55,8 +55,8 @@ python braincoord.py --logbook True
 python braincoord.py --debug True
 ```
 ## Documentation
-For further information you will find the documentation in a zip file, open the file "index.html"
+For further information you will find the documentation in a zip file (doc.zip) on this repository. Download, uncompress and open the file "index.html"
 
 ## Requirements
-You will find a file called "requirements.txt" where is explicit the libraries need run the script.
+You will find a file on the repository called “requirements.txt” where are the explicit libraries needed to run the script in your own enviroment.
 
