@@ -29,7 +29,7 @@ python braincoord.py --database_file MN --reference_point bregma --ap 33 --ml 15
 
 If the nucleus of your interest is not in this database, upload  your own database as a .cvs file with the format previously mentioned. At the end, the script will rise a list with the resultant coordinates (AP, ML, DV), which indicates the point to move at the stereotaxic frame. 
 
-Is important to notice this version only accepts files with a minimun of two rows of coordinates. In the case of the user  requires to enter a particular coordinate instead of the predicted one by the program, load a .csv file with the particular coordinates follow by a second row fill with: [0, 0, 0, 0, 0, 0]. 
+Is important to notice  that this version only accepts files with a minimun of two rows of coordinates. In the case the user  requires to enter a particular coordinate, load a .csv file with the particular coordinates follow by a second row fill with: [0, 0, 0, 0, 0, 0]. 
 
 ### Optional arguments
 
