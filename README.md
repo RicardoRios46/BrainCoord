@@ -15,13 +15,13 @@ This tool accepts .cvs files which requires to contain the following ordered coo
 
 You can run the script at your terminal in two ways:
 
--Filling the variables as they are requested, all must be entered in millimeters, choose a reference point (bregma or lambda) and select the nuceli to target (MN, LVe, MVePc or IntA).  Notice the "reference0" is the AP, ML, DV coordinates from the point references at the mouse. For example: 
+- Filling the variables as they are requested, all must be entered in millimeters, choose a reference point (bregma or lambda) and select the nuceli to target (MN, LVe, MVePc or IntA).  Notice the "reference0" is the AP, ML, DV coordinates from the point references at the mouse. For example: 
 
 ```bash
 python braincoord.py
 ```
 
--Type the command with all the entrances in the same line. For example:
+- Type the command with all the entrances in the same line. For example:
 
 ```bash
 python braincoord.py --database_file MN --reference_point bregma --ap 33 --ml 15 --dv 63.7
