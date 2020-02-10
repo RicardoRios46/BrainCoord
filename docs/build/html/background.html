@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Background &#8212; BrainCoord 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="System requirements" href="system_requirements.html" />
+    <link rel="prev" title="Flowchart" href="flowchart.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">BrainCoord 0.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="flowchart.html" title="Flowchart"
+             accesskey="P">previous</a> |
+          <a href="system_requirements.html" title="System requirements"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="background">
+<span id="background-sheet"></span><h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In neuroscience, microinjection techniques are widely used to trace neuronal populations and asses electrophysiological and pharmacological approaches.
+Thus, to perform this task is mandatory to use an <strong>stereotaxic apparatus</strong>, this device helps to fix the mouse head and positioning the needle in specific coordinates to reach the nucleus of the brain under study.
+The resultant coordinates are calculated per each animal by the researcher during the surgery, because they differ in every mouse depending on the mouse size and therefore the bregma location. Additionally,
+establish the accurate coordinates is crucial for a successful experiment.</p>
+<a class="reference internal image-reference" href="_images/mouse_stereotaxic_image_stereo.png"><img alt="Stereotaxic Instrument" src="_images/mouse_stereotaxic_image_stereo.png" style="width: 583.0999999999999px; height: 755.3px;" /></a>
+<p>Based on a very well documented <a class="reference external" href="https://www.elsevier.com/books/the-rat-brain-in-stereotaxic-coordinates/paxinos/978-0-12-391949-6">atlas</a>, researchers make the math at the moment, however it can become a problem mostly because anesthesia times, and error in calculations.</p>
+</div>
+<div class="section" id="coordinates-determination">
+<h2>Coordinates determination<a class="headerlink" href="#coordinates-determination" title="Permalink to this headline">¶</a></h2>
+<p>The reference start point to perform the surgery are either of the two craniometric points: Bregma (br) or lambda (la).</p>
+<a class="reference internal image-reference" href="_images/coordinate-reference.png"><img alt="_images/coordinate-reference.png" src="_images/coordinate-reference.png" style="width: 708.0px; height: 325.0px;" /></a>
+<p>Image shows the dorsal surface of the mouse skull showing the horizontal plane reference points, bregma and lambda. Lambda is defined as the point of intersection of the projection of lines of best fit through the sagittal and lambdoid sutures.</p>
+<p>Using one of this reference points and based on the atlas, researchers calculate three coordinates, which belong to the nucleus brain “central” point where the needle/pipette tip must be placed.</p>
+<p>The three coordinates calculated are:</p>
+<ul class="simple">
+<li><p><strong>Antero-posterior (AP):</strong> This coordinate is in the longitudinal axis which is in the same line of bregma and lambda. Surface of the mice cranium.</p></li>
+<li><p><strong>Medio-Lateral (ML):</strong> This coordinate is in the transversal axis which runs from left to right of the brain.</p></li>
+<li><p><strong>Dorso-Ventral (DV):</strong> This coordinate is in the vertical axis which runs from the dorsal to the ventral cranium surface.</p></li>
+</ul>
+<p>Researchers choose bregma or lambda as reference point, depending on the proximity of the target brain nucleus to either of them.To establish the coordinates, researchers first must anesthetize the mouse and immobilize the head in the device,
+by placing the sticks into both external ear ducts. Then, after to expose the skull surface, the needle is carefully placed over one of the references points (bregma or lambda).
+The measured coordinates (three axis) at this references point is consider as the coordinate “0”, from it, researches have to calculate how far they need to move the needle in the three axis to get to the target nucleus of the brain (showed as a blue start in the image below).</p>
+<a class="reference internal image-reference" href="_images/bregma_6-12_.png"><img alt="_images/bregma_6-12_.png" src="_images/bregma_6-12_.png" style="width: 791.7px; height: 608.4px;" /></a>
+<p>Image references:</p>
+<p><a class="reference external" href="https://conductscience.com/lab/standard-stereotaxic-surgery-system/">img1</a> edited for the illustrative purposes of this report.</p>
+<p><a class="reference external" href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.duo.uio.no%2Fbitstream%2F10852%2F60987%2F6%2FPhD-Papp-DUO.pdf&amp;psig=AOvVaw1cD9Hmq22DMn6tYSjdujAx&amp;ust=1581095509720000&amp;source=images&amp;cd=vfe&amp;ved=0CA0QjhxqFwoTCNjK2Pu1vecCFQAAAAAdAAAAABAD">img2</a> edited for the illustrative purposes of this report.</p>
+<p><a class="reference external" href="https://www.elsevier.com/books/the-rat-brain-in-stereotaxic-coordinates/paxinos/978-0-12-391949-6">img3</a> edited for the illustrative purposes of this report.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="brainCoord_general_description.html">BrainCoord general description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flowchart.html">Flowchart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#coordinates-determination">Coordinates determination</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="system_requirements.html">System requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Classes and functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Knowledge_from_the_course_applied_to_the_program.html">Applied knowledge</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="flowchart.html" title="Flowchart"
+              >previous</a> |
+            <a href="system_requirements.html" title="System requirements"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/background.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, BrainTeam.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Classes and functions &#8212; BrainCoord 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Applied knowledge" href="Knowledge_from_the_course_applied_to_the_program.html" />
+    <link rel="prev" title="System requirements" href="system_requirements.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">BrainCoord 0.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="system_requirements.html" title="System requirements"
+             accesskey="P">previous</a> |
+          <a href="Knowledge_from_the_course_applied_to_the_program.html" title="Applied knowledge"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="classes-and-functions">
+<span id="classes-sheet"></span><h1>Classes and functions<a class="headerlink" href="#classes-and-functions" title="Permalink to this headline">¶</a></h1>
+<p>The following classes and functions were defined for the function of BrainCoord</p>
+<span class="target" id="module-class_module"></span><dl class="class">
+<dt id="class_module.Nucleo">
+<em class="property">class </em><code class="sig-prename descclassname">class_module.</code><code class="sig-name descname">Nucleo</code><span class="sig-paren">(</span><em class="sig-param">database_filename</em>, <em class="sig-param">reference_point</em>, <em class="sig-param">coordinate0</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class used for each nuclei to identify</p>
+<p>…</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>database_filename</strong><span class="classifier">str</span></dt><dd><p>file type .csv that contain the list of coordinates per nuclei</p>
+</dd>
+<dt><strong>reference_point</strong><span class="classifier">str</span></dt><dd><p>researcher chooses point, (options bregma or lambda)</p>
+</dd>
+<dt><strong>coordinate0</strong><span class="classifier">float</span></dt><dd><p>coordinates in AP, ML, DV axis belonging to the choosed reference point in the current mouse</p>
+</dd>
+<dt><strong>lambda_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for lambda coordinate (up to 90)</p>
+</dd>
+<dt><strong>bregma_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for bregma coordinate (up to 90)</p>
+</dd>
+<dt><strong>medio_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for medial coordinate (up to 90)</p>
+</dd>
+<dt><strong>lateral_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for lateral coordinate (up to 90)</p>
+</dd>
+<dt><strong>dorso_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for dorsal coordinate (up to 90)</p>
+</dd>
+<dt><strong>ventral_range</strong><span class="classifier">float</span></dt><dd><p>accpetable range in mm for ventral coordinate (up to 90)</p>
+</dd>
+<dt><strong>n_points</strong><span class="classifier">float</span></dt><dd><p>total row number in the datalist</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#class_module.Nucleo.read_list" title="class_module.Nucleo.read_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_list</span></code></a>(self)</p></td>
+<td><p>Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, medial, lateral, dorsal, ventral</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#class_module.Nucleo.create_point" title="class_module.Nucleo.create_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_point</span></code></a>(self)</p></td>
+<td><p>Calculates the central point of the target nuclei at the position of the biggest area</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#class_module.Nucleo.get_coordinates" title="class_module.Nucleo.get_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_coordinates</span></code></a>(self)</p></td>
+<td><p>Gives the resultant coordinates to move on, based on the entered coordinate0 and the choosed traget nuclei.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#class_module.Nucleo.update_logbook" title="class_module.Nucleo.update_logbook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_logbook</span></code></a>(self, coordinates_result)</p></td>
+<td><p>Print the resultant coordinates and mouse characteristics to use as lab-book</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="class_module.Nucleo.create_point">
+<code class="sig-name descname">create_point</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.create_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the central point of the target nuclei at the position of the biggest area</p>
+<p>This function takes the medial value of the total length of the nuclei in each axis and calculates the area
+per each AP coordinate. Later on, selects the biggest area.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="class_module.Nucleo.get_coordinates">
+<code class="sig-name descname">get_coordinates</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.get_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives the resultant coordinates to move on, based on the entered coordinate0 and the choosed traget nuclei.
+test.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>reference_point</strong><span class="classifier">str</span></dt><dd><p>researcher chooses the started point, (options: bregma or lambda)</p>
+</dd>
+<dt><strong>coordinate0</strong><span class="classifier">List[float]</span></dt><dd><p>coordinates in AP, ML, DV axis belonging to the choosed reference point in the current mouse.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>list</strong><span class="classifier">List[float]</span></dt><dd><p>a list with the resultant coordinates [AP, ML, DV]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="class_module.Nucleo.print_debugfile">
+<code class="sig-name descname">print_debugfile</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.print_debugfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save debuging messages at ‘debug_file.log’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="class_module.Nucleo.read_list">
+<code class="sig-name descname">read_list</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.read_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the dataset with the coordinates list of the target nuclei, organizated as lambda, bregma, medial,
+lateral, dorsal, ventral</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="class_module.Nucleo.update_logbook">
+<code class="sig-name descname">update_logbook</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">coordinates_result</em><span class="sig-paren">)</span><a class="headerlink" href="#class_module.Nucleo.update_logbook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the resultant coordinates and mouse characteristics to use as lab-book</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-checkInputs"></span><dl class="exception">
+<dt id="checkInputs.InadequateFormatException">
+<em class="property">exception </em><code class="sig-prename descclassname">checkInputs.</code><code class="sig-name descname">InadequateFormatException</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#checkInputs.InadequateFormatException" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class derivaded from Exception that raise the message error</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="checkInputs.checkExistence_file">
+<code class="sig-prename descclassname">checkInputs.</code><code class="sig-name descname">checkExistence_file</code><span class="sig-paren">(</span><em class="sig-param">database_filename</em><span class="sig-paren">)</span><a class="headerlink" href="#checkInputs.checkExistence_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that check if the db file can be opened</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="checkInputs.checkFormat_coordinate0">
+<code class="sig-prename descclassname">checkInputs.</code><code class="sig-name descname">checkFormat_coordinate0</code><span class="sig-paren">(</span><em class="sig-param">coordinate0</em><span class="sig-paren">)</span><a class="headerlink" href="#checkInputs.checkFormat_coordinate0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that probe the coordinates are in a number list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="checkInputs.checkFormat_file">
+<code class="sig-prename descclassname">checkInputs.</code><code class="sig-name descname">checkFormat_file</code><span class="sig-paren">(</span><em class="sig-param">database_filename</em><span class="sig-paren">)</span><a class="headerlink" href="#checkInputs.checkFormat_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that check is the file formart is csv</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="checkInputs.checkFormat_referece_point">
+<code class="sig-prename descclassname">checkInputs.</code><code class="sig-name descname">checkFormat_referece_point</code><span class="sig-paren">(</span><em class="sig-param">reference_point</em><span class="sig-paren">)</span><a class="headerlink" href="#checkInputs.checkFormat_referece_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>“This funcion check if the reference point is writting correctly ‘bregma’ or ‘lambda’</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="checkInputs.checkValues_coordinate0">
+<code class="sig-prename descclassname">checkInputs.</code><code class="sig-name descname">checkValues_coordinate0</code><span class="sig-paren">(</span><em class="sig-param">coordinate0</em>, <em class="sig-param">reference_point</em><span class="sig-paren">)</span><a class="headerlink" href="#checkInputs.checkValues_coordinate0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that check the range of the input coordinates to be rigth</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="brainCoord_general_description.html">BrainCoord general description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flowchart.html">Flowchart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system_requirements.html">System requirements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Classes and functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Knowledge_from_the_course_applied_to_the_program.html">Applied knowledge</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="system_requirements.html" title="System requirements"
+              >previous</a> |
+            <a href="Knowledge_from_the_course_applied_to_the_program.html" title="Applied knowledge"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/classes.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, BrainTeam.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

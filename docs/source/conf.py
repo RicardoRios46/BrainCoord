@@ -47,7 +47,9 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 #import oe_sphinx_theme
-html_theme = 'yummy_sphinx_theme'
+html_theme = 'agogo'
+html_logo = './_static/.LOGO2.png'
+#html_theme = 'yummy_sphinx_theme'
 #html_theme_path = [oe_sphinx_theme.get_theme_dir()]
 
 # Add any paths that contain custom static files (such as style sheets) here,

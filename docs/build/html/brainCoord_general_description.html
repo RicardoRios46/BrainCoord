@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>BrainCoord general description &#8212; BrainCoord 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Flowchart" href="flowchart.html" />
+    <link rel="prev" title="Welcome to BrainCoord’s documentation!" href="index.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">BrainCoord 0.1 documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="index.html" title="Welcome to BrainCoord’s documentation!"
+             accesskey="P">previous</a> |
+          <a href="flowchart.html" title="Flowchart"
+             accesskey="N">next</a> |
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="braincoord-general-description">
+<span id="description-sheet"></span><h1>BrainCoord general description<a class="headerlink" href="#braincoord-general-description" title="Permalink to this headline">¶</a></h1>
+<p>BrainCoord is a program designed to deliver the optimal coordinates for a particular nucleus analyzed through microinjection techniques in mouse.</p>
+<p>It computes the target coordinates instantly and error free, improving the researchers work and the whole experiment result.</p>
+<p>BrainCoord was built in reference to the Mouse Brain Paxinos Atlas.
+This program allows to calculate the optimal coordinates to reach any brain nucleus in the mouse, delivering the resultant coordinates points (AP, ML, DV) from a coordenate 0 (bregma or lambda), previously entered by the user.
+In addition, this script allows the importing of a datbase of any particular nucleus.</p>
+<div class="section" id="how-does-it-work">
+<span id="id1"></span><h2>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
+<p>This tool we is focused on cerebellar nuclei: medial vestibular parvocellular (<strong>MVePC</strong>), medial nucleus (<strong>MN</strong>), lateral vestibular (<strong>LVe</strong>), Interpositus anterior (<strong>IntA</strong>).
+It computes the final coordinates using as a reference a database that contains information of several plates, which indicates the position of the target nucleus in such plate.
+BrainCoord choose the bigger area of the nucleus in those plates and according to the middle point of such area, computes the coordinates where the needle must be moved to perform the microinjection.</p>
+</div>
+<div class="section" id="considerations">
+<h2>Considerations<a class="headerlink" href="#considerations" title="Permalink to this headline">¶</a></h2>
+<p>Coordinates are computed using as a reference the coronal plane and considering a stereotaxic apparatus tower positioned at the left side.</p>
+</div>
+<div class="section" id="inputs-requirements">
+<h2>Inputs requirements<a class="headerlink" href="#inputs-requirements" title="Permalink to this headline">¶</a></h2>
+<p>This tool accepts 5 arguments:</p>
+<ol class="arabic simple">
+<li><p>name of one of the 4 target nucleus (as indicated in the keywords in black in (see <a class="reference internal" href="#how-does-it-work"><span class="std std-ref">How does it work?</span></a>) section.</p></li>
+<li><p>reference point (bregma or lamda)</p></li>
+<li><p>AP coordinate 0 (in <strong>mm</strong>)</p></li>
+<li><p>ML coordinate 0 (in <strong>mm</strong>)</p></li>
+<li><p>DV coordinate 0 (in <strong>mm</strong>)</p></li>
+</ol>
+<p>Optionally, this tool accepts .cvs files containing the following ordered coordinates (in mm), per each imported nucleus:</p>
+<ul class="simple">
+<li><p>point reference lambda</p></li>
+<li><p>point reference bregma</p></li>
+<li><p>lateral limit</p></li>
+<li><p>medial limit</p></li>
+<li><p>dorsal limit</p></li>
+<li><p>vetral limit</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Table of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BrainCoord general description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-does-it-work">How does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#considerations">Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inputs-requirements">Inputs requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flowchart.html">Flowchart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system_requirements.html">System requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Classes and functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Knowledge_from_the_course_applied_to_the_program.html">Applied knowledge</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="index.html" title="Welcome to BrainCoord’s documentation!"
+              >previous</a> |
+            <a href="flowchart.html" title="Flowchart"
+              >next</a> |
+            <a href="py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="_sources/brainCoord_general_description.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, BrainTeam.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
