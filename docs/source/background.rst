@@ -15,7 +15,7 @@ establish the accurate coordinates is crucial for a successful experiment.
 
 .. image::
    _static/mouse_stereotaxic_image_stereo.png
-   :scale: 5 %
+   :scale: 70 %
    :alt: Stereotaxic Instrument
 
 
@@ -29,7 +29,7 @@ The reference start point to perform the surgery are either of the two craniomet
 
 .. image::
    _static/coordinate-reference.png
-   :scale: 10 %
+   :scale: 100 %
 
 
 Image shows the dorsal surface of the mouse skull showing the horizontal plane reference points, bregma and lambda. Lambda is defined as the point of intersection of the projection of lines of best fit through the sagittal and lambdoid sutures.
@@ -51,7 +51,7 @@ The measured coordinates (three axis) at this references point is consider as th
 
 .. image::
    _static/bregma_6-12_.png
-   :scale: 5 %
+   :scale: 65 %
 
 
 Image references:
