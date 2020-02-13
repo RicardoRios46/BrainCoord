@@ -1,4 +1,5 @@
-[[extra/LOGO.png]]
+[braincord](extra/LOGO.png)
+
 # BrainCoord
 
 BrainCoord is a program designed to deliver the optimal coordinates for a particular nucleus analyzed through microinjection techniques in mouse.
