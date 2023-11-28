@@ -6,7 +6,7 @@ certifi==2022.12.7
 cffi==1.13.2
 chardet==3.0.4
 Click==7.0
-cryptography==39.0.1
+cryptography==41.0.6
 docutils==0.16
 idna==2.8
 imagesize==1.2.0
